@@ -1,103 +1,152 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <script>
-  if (localStorage.getItem('isLoggedIn') !== 'true') {
-    window.location.href = 'login.html';
-  }
-</script>
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
 
-  <title>Instalasi POS Client</title>
+  <title>Instalasi POS Client - Sistem Parkir</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans text-gray-800">
+<body class="bg-gray-900 font-sans text-gray-200">
 
-  <!-- Navbar -->
-  <nav class="bg-blue-900 text-white p-4 flex space-x-6 flex-wrap">
-    <a href="../index.html" class="hover:underline">Beranda</a>
-    <a href="materi.html" class="hover:underline">Materi</a>
-    <a href="barrier.html" class="hover:underline font-bold">Barrier Gate</a>
-    <a href="ip-kamera.html" class="hover:underline">IP Kamera</a>
-    <a href="pos-client.html" class="hover:underline">POS Client</a>
+    <!-- Navbar -->
+  <nav class="bg-gray-800 text-white p-4 shadow-md">
+    <div class="container mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="../aset/spi3.jpg" alt="Logo SPI" class="w-10 h-10 rounded-full">
+        <span class="font-bold text-lg tracking-wide">Centralized Maintenance</span>
+      </div>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex space-x-8">
+        <a href="../index.html" class="hover:text-cyan-400 transition duration-300">Beranda</a>
+        <a href="install-windows.html" class="hover:text-cyan-400 transition duration-300">Install Windows</a>
+        <a href="barrier.html" class="text-cyan-400 font-bold transition duration-300">Barrier Gate</a>
+        <a href="ip-kamera.html" class="hover:text-cyan-400 transition duration-300">IP Kamera</a>
+        <a href="pos-client.html" class="hover:text-cyan-400 transition duration-300">POS Client</a>
+        <a href="patching.html" class="hover:text-cyan-400 transition duration-300">Patching</a>
+        <a href="instalasi-fedora-admin.html" class="hover:text-cyan-400 transition duration-300">Instalasi Fedora Admin</a>
+      </div>
+
+      <!-- Hamburger Mobile -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="focus:outline-none">
+          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dropdown Mobile -->
+    <div id="menu" class="hidden md:hidden mt-4 space-y-2 px-4">
+      <a href="../index.html" class="block hover:text-cyan-400 transition duration-300">Beranda</a>
+      <a href="materi.html" class="block hover:text-cyan-400 transition duration-300">Materi</a>
+      <a href="barrier.html" class="block hover:text-cyan-400 transition duration-300 font-bold">Barrier Gate</a>
+      <a href="ip-kamera.html" class="block hover:text-cyan-400 transition duration-300">IP Kamera</a>
+      <a href="pos-client.html" class="block hover:text-cyan-400 transition duration-300">POS Client</a>
+    </div>
   </nav>
 
   <!-- Header -->
-  <header class="bg-blue-800 text-white p-8 text-center">
-    <h1 class="text-3xl font-bold mb-2">Instalasi & Konfigurasi POS Client</h1>
-    <p class="text-lg">Digunakan di komputer gate parkir untuk mengelola tiket & akses kendaraan</p>
+  <header class="bg-gradient-to-r from-cyan-700 to-cyan-900 text-white p-12 text-center shadow-xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3">Instalasi & Konfigurasi POS Client</h1>
+    <p class="text-lg md:text-xl opacity-90">Digunakan di komputer gate parkir untuk mengelola tiket & akses kendaraan</p>
   </header>
 
   <!-- Content -->
-  <main class="max-w-3xl mx-auto p-6 bg-white my-10 rounded shadow space-y-8">
+  <main class="max-w-4xl mx-auto my-12 px-4 md:px-0 space-y-10">
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">1. Persiapan</h2>
-      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">1. Persiapan</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-300">
         <li>Komputer client dengan OS Windows (7/10)</li>
         <li>Koneksi LAN ke server Fedora</li>
-        <li>Installer POS Client (*.exe), biasanya dari vendor</li>
+        <li>Installer POS Client (*.exe) dari vendor</li>
         <li>Printer thermal (untuk cetak tiket)</li>
         <li>Reader kartu/member (opsional)</li>
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">2. Instalasi Software</h2>
-      <ol class="list-decimal pl-6 text-gray-700 space-y-1">
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">2. Instalasi Software</h2>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-300">
         <li>Jalankan installer POS Client</li>
-        <li>Pilih direktori instalasi (biarkan default jika tidak yakin)</li>
+        <li>Pilih direktori instalasi (default jika tidak yakin)</li>
         <li>Ikuti wizard sampai selesai</li>
         <li>Restart komputer setelah instalasi</li>
       </ol>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">3. Setting Koneksi ke Server</h2>
-      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">3. Setting Koneksi ke Server</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-300">
         <li>Buka aplikasi POS Client</li>
-        <li>Masuk ke menu “Settings” atau “Configuration”</li>
-        <li>Isi IP Server: `192.168.1.10` (contoh IP Fedora Server)</li>
-        <li>Pilih Port komunikasi: misalnya `8080` atau `3306` untuk MySQL</li>
+        <li>Masuk menu “Settings” atau “Configuration”</li>
+        <li>Isi IP Server: <code>192.168.1.10</code></li>
+        <li>Pilih port komunikasi: <code>8080</code> atau <code>3306</code></li>
         <li>Test koneksi: pastikan status "Connected"</li>
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">4. Integrasi Perangkat</h2>
-      <ul class="list-disc pl-6 text-gray-700 space-y-1">
-        <li>Pasang printer thermal ke port USB</li>
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">4. Integrasi Perangkat</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-300">
+        <li>Pasang printer thermal ke USB</li>
         <li>Install driver printer jika belum otomatis terdeteksi</li>
         <li>Uji cetak tiket dari menu POS</li>
-        <li>Pasang card reader (jika pakai RFID/Mifare), dan sambungkan via USB</li>
+        <li>Pasang card reader (jika pakai RFID/Mifare), sambungkan via USB</li>
         <li>Uji pembacaan kartu</li>
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">5. Tips Tambahan</h2>
-      <ul class="list-disc pl-6 text-gray-700 space-y-1">
-        <li>Gunakan aplikasi VNC untuk remote konfigurasi POS dari server</li>
-        <li>Hindari restart mendadak saat proses transaksi berlangsung</li>
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">5. Tips Tambahan</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-300">
+        <li>Gunakan VNC untuk remote konfigurasi POS</li>
+        <li>Hindari restart mendadak saat transaksi berlangsung</li>
         <li>Backup konfigurasi POS secara berkala</li>
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">6. Referensi</h2>
-      <ul class="list-disc pl-6 text-blue-600 space-y-2">
-        <li><a href="https://www.youtube.com/watch?v=7P_P54XBbMs" target="_blank" class="hover:underline">Video setup POS Gate (YouTube)</a></li>
-        <li><a href="https://www.possystem.com/setup" target="_blank" class="hover:underline">Dokumentasi POS System</a></li>
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">6. Referensi</h2>
+      <ul class="list-disc pl-6 space-y-2 text-cyan-400">
+        <li><a href="https://www.youtube.com/watch?v=7P_P54XBbMs" target="_blank" class="hover:underline hover:text-cyan-300">Video setup POS Gate (YouTube)</a></li>
+        <li><a href="https://www.possystem.com/setup" target="_blank" class="hover:underline hover:text-cyan-300">Dokumentasi POS System</a></li>
       </ul>
     </section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center p-4 mt-10">
+  <footer class="bg-gray-800 text-gray-400 text-center p-6 mt-12 border-t border-gray-700">
     <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
   </footer>
+
+  <!-- Script untuk toggle mobile menu + ikon X -->
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    const icon = document.getElementById('menu-icon');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      if (!menu.classList.contains('hidden')) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+      } else {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+      }
+    });
+  </script>
 
 </body>
 </html>

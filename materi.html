@@ -7,75 +7,111 @@
   if (localStorage.getItem('isLoggedIn') !== 'true') {
     window.location.href = 'login.html';
   }
-</script>
+  </script>
 
   <title>Materi Konfigurasi Sistem Parkir</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans text-gray-800">
+<body class="bg-gray-900 font-sans text-gray-200">
 
   <!-- Navbar -->
-  <nav class="bg-blue-900 text-white p-4 flex space-x-6">
-    <a href="index.html" class="hover:underline">Beranda</a>
-    <a href="materi.html" class="hover:underline font-bold">Materi</a>
-    <!-- <a href="komponen.html" class="hover:underline">Komponen</a> -->
-    <a href="studi-kasus.html" class="hover:underline">Studi Kasus</a>
-    <a href="galeri.html" class="hover:underline">Galeri</a>
-    <a href="sumber.html" class="hover:underline">Sumber</a>
-    <a href="tentang.html" class="hover:underline">Tentang</a>
+  <nav class="bg-gray-800 text-white p-4 shadow-md">
+    <div class="container mx-auto flex items-center justify-between">
+      <!-- Logo + Brand -->
+      <div class="flex items-center space-x-2">
+        <img src="./aset/spi3.jpg" alt="Logo SPI" class="w-8 h-8">
+        <span class="font-bold text-lg">Secure Parking</span>
+      </div>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-cyan-400">Beranda</a>
+        <a href="materi.html" class="text-cyan-400 font-bold">Materi</a>
+        <a href="studi-kasus.html" class="hover:text-cyan-400">Studi Kasus</a>
+        <a href="galeri.html" class="hover:text-cyan-400">Galeri</a>
+        <a href="sumber.html" class="hover:text-cyan-400">Sumber</a>
+        <a href="tentang.html" class="hover:text-cyan-400">Tentang</a>
+      </div>
+
+      <!-- Hamburger Mobile -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dropdown Mobile -->
+    <div id="menu" class="hidden md:hidden mt-4 space-y-2">
+      <a href="index.html" class="block hover:text-cyan-400">Beranda</a>
+      <a href="materi.html" class="block text-cyan-400 font-bold">Materi</a>
+      <a href="studi-kasus.html" class="block hover:text-cyan-400">Studi Kasus</a>
+      <a href="galeri.html" class="block hover:text-cyan-400">Galeri</a>
+      <a href="sumber.html" class="block hover:text-cyan-400">Sumber</a>
+      <a href="tentang.html" class="block hover:text-cyan-400">Tentang</a>
+    </div>
   </nav>
 
   <!-- Header -->
-  <header class="bg-blue-800 text-white p-8 text-center">
+  <header class="bg-gradient-to-r from-cyan-700 to-cyan-900 text-white p-8 text-center shadow">
     <h1 class="text-3xl font-bold mb-2">Materi Konfigurasi Sistem Parkir</h1>
     <p class="text-lg">Tutorial instalasi software dan pengaturan sistem parkiran otomatis</p>
   </header>
 
   <!-- Content -->
-  <main class="max-w-4xl mx-auto my-10 p-6 bg-white rounded shadow space-y-8">
-
+  <main class="max-w-4xl mx-auto my-10 p-6 bg-gray-800 rounded-xl shadow-lg space-y-8">
     <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">1. Instalasi Fedora Admin</h2>
-      <p class="text-gray-700">Langkah-langkah instalasi Fedora Linux sebagai sistem server utama untuk kontrol parkir.</p>
-      <a href="./materi/instalasi-fedora-admin.html" class="text-blue-500 hover:underline">Baca selengkapnya →</a>
+      <h2 class="text-xl font-semibold text-cyan-400 mb-2">1. Instalasi Fedora Admin</h2>
+      <p class="text-gray-300">Langkah-langkah instalasi Fedora Linux sebagai sistem server utama untuk kontrol parkir.</p>
+      <a href="./materi/instalasi-fedora-admin.html" class="text-cyan-400 hover:underline">Baca selengkapnya →</a>
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">2. Instalasi POS Client</h2>
-      <p class="text-gray-700">Cara setup POS Client di komputer gate untuk mengelola tiket masuk/keluar kendaraan.</p>
-      <a href="./materi/pos-client.html" class="text-blue-500 hover:underline">Baca selengkapnya →</a>
+      <h2 class="text-xl font-semibold text-cyan-400 mb-2">2. Instalasi POS Client</h2>
+      <p class="text-gray-300">Cara setup POS Client di komputer gate untuk mengelola tiket masuk/keluar kendaraan.</p>
+      <a href="./materi/pos-client.html" class="text-cyan-400 hover:underline">Baca selengkapnya →</a>
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">3. Instalasi Windows & Dual Boot</h2>
-      <p class="text-gray-700">Panduan instalasi Windows untuk sistem hybrid, termasuk dual boot dengan Fedora.</p>
-      <a href="./materi/install-windows.html" class="text-blue-500 hover:underline">Baca selengkapnya →</a>
+      <h2 class="text-xl font-semibold text-cyan-400 mb-2">3. Instalasi Windows & Dual Boot</h2>
+      <p class="text-gray-300">Panduan instalasi Windows untuk sistem hybrid, termasuk dual boot dengan Fedora.</p>
+      <a href="./materi/install-windows.html" class="text-cyan-400 hover:underline">Baca selengkapnya →</a>
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">4. Setting IP Kamera</h2>
-      <p class="text-gray-700">Tutorial mengatur IP kamera agar terhubung dengan server monitoring dan CCTV system.</p>
-      <a href="./materi/ip-kamera.html" class="text-blue-500 hover:underline">Baca selengkapnya →</a>
+      <h2 class="text-xl font-semibold text-cyan-400 mb-2">4. Setting IP Kamera</h2>
+      <p class="text-gray-300">Tutorial mengatur IP kamera agar terhubung dengan server monitoring dan CCTV system.</p>
+      <a href="./materi/ip-kamera.html" class="text-cyan-400 hover:underline">Baca selengkapnya →</a>
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">5. Konfigurasi Barrier Gate Controller</h2>
-      <p class="text-gray-700">Langkah-langkah setting pengontrol palang otomatis agar sinkron dengan sistem.</p>
-      <a href="./materi/barrier.html" class="text-blue-500 hover:underline">Baca selengkapnya →</a>
+      <h2 class="text-xl font-semibold text-cyan-400 mb-2">5. Konfigurasi Barrier Gate Controller</h2>
+      <p class="text-gray-300">Langkah-langkah setting pengontrol palang otomatis agar sinkron dengan sistem.</p>
+      <a href="./materi/barrier.html" class="text-cyan-400 hover:underline">Baca selengkapnya →</a>
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">6. patching fedora</h2>
-      <p class="text-gray-700">Cara mengakses dan memonitor sistem parkir secara remote menggunakan VNC viewer.</p>
-      <a href="./materi/patching.html" class="text-blue-500 hover:underline">Baca selengkapnya →</a>
+      <h2 class="text-xl font-semibold text-cyan-400 mb-2">6. Patching Fedora</h2>
+      <p class="text-gray-300">Cara mengakses dan memonitor sistem parkir secara remote menggunakan VNC viewer.</p>
+      <a href="./materi/patching.html" class="text-cyan-400 hover:underline">Baca selengkapnya →</a>
     </section>
-
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center p-4 mt-10">
+  <footer class="bg-gray-800 text-gray-400 text-center p-4 mt-10 border-t border-gray-700">
     <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
   </footer>
 
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>

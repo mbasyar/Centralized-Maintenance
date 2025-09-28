@@ -7,65 +7,103 @@
   if (localStorage.getItem('isLoggedIn') !== 'true') {
     window.location.href = 'login.html';
   }
-</script>
+  </script>
 
   <title>Referensi & Sumber Belajar</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans text-gray-800">
+<body class="bg-gray-900 font-sans text-gray-200">
 
   <!-- Navbar -->
-  <nav class="bg-blue-900 text-white p-4 flex space-x-6">
-    <a href="index.html" class="hover:underline">Beranda</a>
-    <a href="materi.html" class="hover:underline">Materi</a>
-    <!-- <a href="komponen.html" class="hover:underline">Komponen</a> -->
-    <a href="studi-kasus.html" class="hover:underline">Studi Kasus</a>
-    <a href="galeri.html" class="hover:underline">Galeri</a>
-    <a href="sumber.html" class="hover:underline font-bold">Sumber</a>
-    <a href="tentang.html" class="hover:underline">Tentang</a>
+  <nav class="bg-gray-800 text-white p-4 shadow-md">
+    <div class="container mx-auto flex items-center justify-between">
+      <!-- Logo + Brand -->
+      <div class="flex items-center space-x-2">
+        <img src="./aset/spi3.jpg" alt="Logo SPI" class="w-8 h-8">
+        <span class="font-bold text-lg">Secure Parking</span>
+      </div>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-cyan-400">Beranda</a>
+        <a href="materi.html" class="hover:text-cyan-400">Materi</a>
+        <a href="studi-kasus.html" class="hover:text-cyan-400">Studi Kasus</a>
+        <a href="galeri.html" class="hover:text-cyan-400">Galeri</a>
+        <a href="sumber.html" class="text-cyan-400 font-bold">Sumber</a>
+        <a href="tentang.html" class="hover:text-cyan-400">Tentang</a>
+      </div>
+
+      <!-- Hamburger Mobile -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dropdown Mobile -->
+    <div id="menu" class="hidden md:hidden mt-4 space-y-2">
+      <a href="index.html" class="block hover:text-cyan-400">Beranda</a>
+      <a href="materi.html" class="block hover:text-cyan-400">Materi</a>
+      <a href="studi-kasus.html" class="block hover:text-cyan-400">Studi Kasus</a>
+      <a href="galeri.html" class="block hover:text-cyan-400">Galeri</a>
+      <a href="sumber.html" class="block text-cyan-400 font-bold">Sumber</a>
+      <a href="tentang.html" class="block hover:text-cyan-400">Tentang</a>
+    </div>
   </nav>
 
   <!-- Header -->
-  <header class="bg-blue-800 text-white p-8 text-center">
+  <header class="bg-gradient-to-r from-cyan-700 to-cyan-900 text-white p-8 text-center shadow">
     <h1 class="text-3xl font-bold mb-2">Referensi & Sumber Belajar</h1>
     <p class="text-lg">Kumpulan link eksternal untuk pendalaman materi Central Maintenance</p>
   </header>
 
   <!-- Content -->
-  <main class="max-w-4xl mx-auto my-10 p-6 bg-white rounded shadow space-y-6">
+  <main class="max-w-4xl mx-auto my-10 p-6 bg-gray-800 rounded-xl shadow-lg space-y-8">
 
     <div>
-      <h2 class="text-xl font-semibold text-blue-700">📘 Artikel & Dokumentasi</h2>
-      <ul class="list-disc pl-6 mt-2 space-y-2 text-blue-600">
-        <li><a href="https://en.wikipedia.org/wiki/Automated_parking_system" target="_blank" class="hover:underline">Wikipedia: Automated Parking System</a></li>
-        <li><a href="https://www.parking-net.com/parking-industry-blog/payment-kiosks" target="_blank" class="hover:underline">Blog: Cara Kerja Kios Pembayaran Parkir</a></li>
-        <li><a href="https://www.parkplus.io/blog/what-is-parking-maintenance" target="_blank" class="hover:underline">Park+: What is Parking Maintenance?</a></li>
-        <li><a href="https://www.parking.net/parking-news/gtechna/parking-maintenance-automation" target="_blank" class="hover:underline">Parking.net: Automation in Maintenance</a></li>
+      <h2 class="text-xl font-semibold text-cyan-400">📘 Artikel & Dokumentasi</h2>
+      <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-300">
+        <li><a href="https://en.wikipedia.org/wiki/Automated_parking_system" target="_blank" class="text-cyan-400 hover:underline">Wikipedia: Automated Parking System</a></li>
+        <li><a href="https://www.parking-net.com/parking-industry-blog/payment-kiosks" target="_blank" class="text-cyan-400 hover:underline">Blog: Cara Kerja Kios Pembayaran Parkir</a></li>
+        <li><a href="https://www.parkplus.io/blog/what-is-parking-maintenance" target="_blank" class="text-cyan-400 hover:underline">Park+: What is Parking Maintenance?</a></li>
+        <li><a href="https://www.parking.net/parking-news/gtechna/parking-maintenance-automation" target="_blank" class="text-cyan-400 hover:underline">Parking.net: Automation in Maintenance</a></li>
       </ul>
     </div>
 
     <div>
-      <h2 class="text-xl font-semibold text-blue-700">🎥 Video & Visualisasi</h2>
-      <ul class="list-disc pl-6 mt-2 space-y-2 text-blue-600">
-        <li><a href="https://www.youtube.com/watch?v=vVu1JavqZzE" target="_blank" class="hover:underline">YouTube: Automated Parking System Explained</a></li>
-        <li><a href="https://www.youtube.com/watch?v=1Ec03T-pnng" target="_blank" class="hover:underline">YouTube: Smart Parking Technology</a></li>
+      <h2 class="text-xl font-semibold text-cyan-400">🎥 Video & Visualisasi</h2>
+      <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-300">
+        <li><a href="https://www.youtube.com/watch?v=vVu1JavqZzE" target="_blank" class="text-cyan-400 hover:underline">YouTube: Automated Parking System Explained</a></li>
+        <li><a href="https://www.youtube.com/watch?v=1Ec03T-pnng" target="_blank" class="text-cyan-400 hover:underline">YouTube: Smart Parking Technology</a></li>
       </ul>
     </div>
 
     <div>
-      <h2 class="text-xl font-semibold text-blue-700">📚 Jurnal & Akademik</h2>
-      <ul class="list-disc pl-6 mt-2 space-y-2 text-blue-600">
-        <li><a href="https://ieeexplore.ieee.org/document/9174035" target="_blank" class="hover:underline">IEEE: Centralized Parking System Monitoring</a></li>
-        <li><a href="https://www.sciencedirect.com/science/article/pii/S1877050920307250" target="_blank" class="hover:underline">ScienceDirect: Smart Parking & IoT</a></li>
+      <h2 class="text-xl font-semibold text-cyan-400">📚 Jurnal & Akademik</h2>
+      <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-300">
+        <li><a href="https://ieeexplore.ieee.org/document/9174035" target="_blank" class="text-cyan-400 hover:underline">IEEE: Centralized Parking System Monitoring</a></li>
+        <li><a href="https://www.sciencedirect.com/science/article/pii/S1877050920307250" target="_blank" class="text-cyan-400 hover:underline">ScienceDirect: Smart Parking & IoT</a></li>
       </ul>
     </div>
 
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center p-4 mt-10">
+  <footer class="bg-gray-800 text-gray-400 text-center p-4 mt-10 border-t border-gray-700">
     <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
   </footer>
 
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>

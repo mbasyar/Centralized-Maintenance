@@ -4,37 +4,72 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <script>
-  if (localStorage.getItem('isLoggedIn') !== 'true') {
-    window.location.href = 'login.html';
-  }
-</script>
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
 
   <title>Patching & Pengambilan Data via SSH - Sistem Parkir</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans text-gray-800">
+<body class="bg-gray-900 font-sans text-gray-200">
 
-  <!-- Navbar -->
-  <nav class="bg-blue-900 text-white p-4 flex space-x-6 flex-wrap">
-    <a href="../index.html" class="hover:underline">Beranda</a>
-    <a href="materi.html" class="hover:underline">Materi</a>
-    <a href="barrier.html" class="hover:underline font-bold">Barrier Gate</a>
-    <a href="ip-kamera.html" class="hover:underline">IP Kamera</a>
-    <a href="pos-client.html" class="hover:underline">POS Client</a>
+   <!-- Navbar -->
+  <nav class="bg-gray-800 text-white p-4 shadow-md">
+    <div class="container mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="../aset/spi3.jpg" alt="Logo SPI" class="w-10 h-10 rounded-full">
+        <span class="font-bold text-lg tracking-wide">Centralized Maintenance</span>
+      </div>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex space-x-8">
+        <a href="../index.html" class="hover:text-cyan-400 transition duration-300">Beranda</a>
+        <a href="install-windows.html" class="hover:text-cyan-400 transition duration-300">Install Windows</a>
+        <a href="barrier.html" class="text-cyan-400 font-bold transition duration-300">Barrier Gate</a>
+        <a href="ip-kamera.html" class="hover:text-cyan-400 transition duration-300">IP Kamera</a>
+        <a href="pos-client.html" class="hover:text-cyan-400 transition duration-300">POS Client</a>
+        <a href="patching.html" class="hover:text-cyan-400 transition duration-300">Patching</a>
+        <a href="instalasi-fedora-admin.html" class="hover:text-cyan-400 transition duration-300">Instalasi Fedora Admin</a>
+      </div>
+
+
+      <!-- Hamburger Mobile -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="focus:outline-none">
+          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dropdown Mobile -->
+    <div id="menu" class="hidden md:hidden mt-4 space-y-2 px-4">
+      <a href="../index.html" class="block hover:text-cyan-400 transition duration-300">Beranda</a>
+      <a href="materi.html" class="block hover:text-cyan-400 transition duration-300">Materi</a>
+      <a href="barrier.html" class="block hover:text-cyan-400 transition duration-300">Barrier Gate</a>
+      <a href="ip-kamera.html" class="block hover:text-cyan-400 transition duration-300">IP Kamera</a>
+      <a href="pos-client.html" class="block hover:text-cyan-400 transition duration-300">POS Client</a>
+    </div>
   </nav>
 
   <!-- Header -->
-  <header class="bg-blue-800 text-white p-8 text-center">
-    <h1 class="text-3xl font-bold">Patching & Pengambilan Data via Terminal (SSH)</h1>
-    <p class="mt-2">Panduan praktis: cek IP, update/patch Fedora, akses via <code>ssh root@</code>, ambil file/database ke CPU</p>
+  <header class="bg-gradient-to-r from-cyan-700 to-cyan-900 text-white p-12 text-center shadow-xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3">Patching & Pengambilan Data via SSH</h1>
+    <p class="text-lg md:text-xl opacity-90">Panduan praktis: cek IP, update/patch Fedora, akses via SSH, ambil file/database ke CPU</p>
   </header>
 
-  <main class="max-w-4xl mx-auto p-6 bg-white mt-8 rounded shadow space-y-6">
+  <!-- Content -->
+  <main class="max-w-5xl mx-auto my-12 px-4 md:px-0 space-y-10">
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700">Ringkasan Singkat</h2>
-      <p class="text-gray-700">Alur umum setelah instalasi OS pada server parkir:</p>
-      <ol class="list-decimal pl-6 text-gray-700">
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">Ringkasan Singkat</h2>
+      <p class="text-gray-300">Alur umum setelah instalasi OS pada server parkir:</p>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-300">
         <li>Cek alamat IP & konektivitas</li>
         <li>Akses server via SSH (hindari telnet)</li>
         <li>Lakukan update/patching (dnf)</li>
@@ -43,151 +78,113 @@
       </ol>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700">1) Cek IP & Konektivitas</h2>
-      <p class="text-gray-700">Beberapa perintah berguna di terminal Fedora:</p>
-      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
-# Lihat alamat IP
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">1) Cek IP & Konektivitas</h2>
+      <p class="text-gray-300">Beberapa perintah berguna di terminal Fedora:</p>
+      <pre class="bg-gray-700 p-3 rounded text-sm overflow-x-auto text-gray-200"><code>
 ip addr show
-
-# Lihat route/gateway
 ip route
-
-# Cek koneksi ke server lain
 ping -c 4 192.168.1.10
-
-# Cek port (contoh: SSH 22 atau MySQL 3306)
 nc -vz 192.168.1.10 22
-</code></pre>
+      </code></pre>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700">2) Akses Server — SSH (rekomendasi)</h2>
-      <p class="text-gray-700">
-        Umumnya akses remote dimulai dengan <code>ssh root@IP</code>. Contoh:
-      </p>
-      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
-# Login sebagai root (contoh)
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">2) Akses Server — SSH</h2>
+      <p class="text-gray-300">Umumnya akses remote dimulai dengan <code>ssh root@IP</code>:</p>
+      <pre class="bg-gray-700 p-3 rounded text-sm overflow-x-auto text-gray-200"><code>
 ssh root@192.168.1.10
-
-# Jika port SSH bukan 22
 ssh -p 2222 root@192.168.1.10
-</code></pre>
-      <p class="text-yellow-700"><strong>Catatan keamanan:</strong> Jangan gunakan <code>telnet</code> untuk akses shell — telnet mengirimkan data (termasuk password) tanpa enkripsi. Gunakan SSH yang terenkripsi. </p>
-
-      <p class="text-gray-700">Lebih aman: gunakan SSH key pair (tanpa password interaktif) — contoh singkat pembuatan key dan pasang ke server:</p>
-      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
-# Buat key di komputer admin
-ssh-keygen -t ed25519 -C "admin@parkir"
-
-# Copy public key ke server (pakai password sekali)
-ssh-copy-id -i ~/.ssh/id_ed25519.pub root@192.168.1.10
-</code></pre>
+      </code></pre>
+      <p class="text-yellow-400 font-semibold">Catatan: jangan gunakan telnet, gunakan SSH terenkripsi. Gunakan key pair untuk login tanpa password interaktif.</p>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700">3) Patching / Update Fedora</h2>
-      <p class="text-gray-700">Langkah standar untuk mengaplikasikan update:</p>
-      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
-# Periksa update
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">3) Patching / Update Fedora</h2>
+      <pre class="bg-gray-700 p-3 rounded text-sm overflow-x-auto text-gray-200"><code>
 sudo dnf check-update
-
-# Lakukan update (non-interactive)
 sudo dnf update -y
-
-# Jika kernel baru terpasang, reboot server
 sudo reboot
-</code></pre>
-      <p class="text-gray-700">Setelah update, cek versi kernel dan status:</p>
-      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
 uname -r
 sudo systemctl status sshd
 sudo journalctl -u your-service-name -n 50
-</code></pre>
+      </code></pre>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700">4) Mengambil File / Data dari Server ke CPU (Admin)</h2>
-      <p class="text-gray-700">Metode umum: <code>scp</code>, <code>rsync</code>, atau menjalankan perintah via <code>ssh</code> dan redirect output.</p>
-
-      <h3 class="font-semibold mt-2 text-gray-800">a) Menggunakan <code>scp</code> (simpel)</h3>
-      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
-# Salin file dari server ke lokal (contoh)
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">4) Mengambil File / Data ke CPU</h2>
+      <p class="text-gray-300">Gunakan <code>scp</code> atau <code>rsync</code>:</p>
+      <pre class="bg-gray-700 p-3 rounded text-sm overflow-x-auto text-gray-200"><code>
 scp root@192.168.1.10:/var/log/parking/app.log ./app.log
-
-# Jika port SSH custom
-scp -P 2222 root@192.168.1.10:/path/to/file ./file
-</code></pre>
-
-      <h3 class="font-semibold mt-2 text-gray-800">b) Menggunakan <code>rsync</code> (lebih efisien untuk folder besar)</h3>
-      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
-# Sinkron folder /var/lib/mysql (contoh) ke lokal, lewat SSH
 rsync -avz -e "ssh -p 22" root@192.168.1.10:/var/lib/mysql/ /backup/mysql/
-
-# Hanya transfer file yang berubah, cocok untuk backup berkala
-</code></pre>
-
-      <h3 class="font-semibold mt-2 text-gray-800">c) Menjalankan perintah jarak jauh dan menyimpan hasilnya</h3>
-      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
-# Jalankan dump DB di server dan simpan output ke file lokal
 ssh root@192.168.1.10 "mysqldump -u dbuser -p'password' parking_db" > parking_db_dump.sql
-
-# Tar & compress folder lalu unduh langsung:
 ssh root@192.168.1.10 "tar czf - /var/log/parking" > parking_logs.tar.gz
-</code></pre>
-
-      <p class="text-gray-700">Pastikan data sensitif ditransfer melalui jaringan internal yang aman (VLAN atau VPN jika lewat publik).</p>
+      </code></pre>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700">5) Contoh Workflow Patching + Ambil Data</h2>
-      <p class="text-gray-700">Contoh langkah yang biasa dilakukan teknisi setelah instalasi OS:</p>
-      <ol class="list-decimal pl-6 text-gray-700">
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">5) Contoh Workflow</h2>
+      <ol class="list-decimal pl-6 space-y-2 text-gray-300">
         <li>SSH ke server: <code>ssh root@192.168.1.10</code></li>
         <li>Periksa IP & kondisi: <code>ip addr; free -h; df -h</code></li>
-        <li>Ambil snapshot log atau DB untuk backup:  
-          <code class="block bg-gray-100 p-2 rounded text-sm mt-2">ssh root@192.168.1.10 "tar czf - /var/log/parking" &gt; /home/admin/parking_logs_$(date +%F).tar.gz</code>
-        </li>
+        <li>Ambil snapshot log atau DB: <code>ssh root@192.168.1.10 "tar czf - /var/log/parking" &gt; /home/admin/parking_logs_$(date +%F).tar.gz</code></li>
         <li>Jalankan update: <code>sudo dnf update -y</code></li>
-        <li>Restart service penting: <code>sudo systemctl restart nginx</code> (atau service lain)</li>
+        <li>Restart service: <code>sudo systemctl restart nginx</code></li>
         <li>Periksa log & status: <code>sudo journalctl -u nginx -n 50</code></li>
-        <li>Jika perlu, sinkron file konfigurasi ke CPU admin via <code>scp</code> atau <code>rsync</code></li>
+        <li>Sinkron file konfigurasi via <code>scp</code> atau <code>rsync</code></li>
       </ol>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700">6) Keamanan & Praktik Baik</h2>
-      <ul class="list-disc pl-6 text-gray-700">
-        <li><strong>Jangan pakai telnet</strong> — telnet tidak terenkripsi. Gunakan SSH.</li>
-        <li>Matikan login root via password di SSH: edit <code>/etc/ssh/sshd_config</code> → <code>PermitRootLogin prohibit-password</code> atau <code>no</code>, lalu restart sshd.</li>
-        <li>Gunakan key-based auth dan batasi IP yang boleh SSH (firewall / fail2ban).</li>
-        <li>Jangan jalankan update otomatis tanpa pengujian pada server produksi — sebaiknya uji di server staging dulu.</li>
-        <li>Backup sebelum patching (DB dump, config, snapshot).</li>
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">6) Keamanan & Praktik Baik</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-300">
+        <li>Jangan pakai telnet, gunakan SSH terenkripsi.</li>
+        <li>Matikan login root via password (<code>/etc/ssh/sshd_config</code>) → restart sshd.</li>
+        <li>Gunakan key-based auth dan batasi IP.</li>
+        <li>Backup sebelum patching.</li>
+        <li>Update diuji di staging server dulu.</li>
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700">7) Troubleshooting Cepat</h2>
-      <ul class="list-disc pl-6 text-gray-700">
-        <li>SSH timeout: cek firewall, service sshd, dan apakah port benar</li>
-        <li>scp/rsync gagal: cek storage space (df -h) dan permission file</li>
-        <li>Service gagal restart: cek log via <code>journalctl -xe</code> atau file log servis</li>
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">7) Troubleshooting Cepat</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-300">
+        <li>SSH timeout: cek firewall, sshd, port</li>
+        <li>scp/rsync gagal: cek storage & permission</li>
+        <li>Service gagal restart: cek <code>journalctl -xe</code></li>
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-blue-700">8) Referensi & Bacaan</h2>
-      <ul class="list-disc pl-6 text-blue-600">
-        <li><a href="https://docs.fedoraproject.org/" target="_blank" class="hover:underline">Fedora Docs</a></li>
-        <li><a href="https://www.ssh.com/academy/ssh" target="_blank" class="hover:underline">SSH Academy</a></li>
+    <section class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-cyan-600 transition duration-500">
+      <h2 class="text-2xl font-semibold text-cyan-400 mb-4">8) Referensi & Bacaan</h2>
+      <ul class="list-disc pl-6 space-y-2 text-cyan-400">
+        <li><a href="https://docs.fedoraproject.org/" target="_blank" class="hover:underline hover:text-cyan-300">Fedora Docs</a></li>
+        <li><a href="https://www.ssh.com/academy/ssh" target="_blank" class="hover:underline hover:text-cyan-300">SSH Academy</a></li>
       </ul>
     </section>
 
   </main>
 
-  <footer class="bg-gray-900 text-white text-center p-4 mt-8">
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-400 text-center p-6 mt-12 border-t border-gray-700">
     <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
   </footer>
+
+  <!-- Script untuk toggle mobile menu + ikon X -->
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    const icon = document.getElementById('menu-icon');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      if (!menu.classList.contains('hidden')) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+      } else {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+      }
+    });
+  </script>
 
 </body>
 </html>
