@@ -10,8 +10,15 @@
   </script>
 
   <title>Tentang Basyar & Website</title>
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font modern -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
     /* Efek glow */
     @keyframes glow {
       0%, 100% { box-shadow: 0 0 15px #06b6d4, 0 0 30px #0ea5e9; }
@@ -22,12 +29,12 @@
     }
   </style>
 </head>
-<body class="bg-gray-900 font-sans text-gray-200">
+<body class="bg-gray-900 text-gray-200">
 
   <!-- Navbar -->
   <nav class="bg-gray-900/80 backdrop-blur-md fixed w-full z-50 shadow-md">
     <div class="container mx-auto flex items-center justify-between p-4">
-      <!-- Logo + Brand -->
+      <!-- Logo -->
       <div class="flex items-center space-x-3">
         <img src="./aset/cm.jpeg" alt="Logo CM" class="w-10 h-10 rounded-full border border-cyan-500 shadow-md">
         <span class="font-extrabold text-lg tracking-wide text-cyan-400">CM Learning</span>
@@ -35,18 +42,18 @@
 
       <!-- Menu Desktop -->
       <div class="hidden md:flex space-x-8 font-medium">
-        <a href="index.html" class="hover:text-cyan-400 transition">Beranda</a>
-        <a href="materi.html" class="hover:text-cyan-400 transition">Materi</a>
-        <a href="studi-kasus.html" class="hover:text-cyan-400 transition">Studi Kasus</a>
-        <a href="galeri.html" class="hover:text-cyan-400 transition">Galeri</a>
-        <a href="sumber.html" class="hover:text-cyan-400 transition">Sumber</a>
-        <a href="tentang.html" class="hover:text-cyan-400 transition">Tentang</a>
+        <a href="index.html" class="hover:text-cyan-400">Beranda</a>
+        <a href="materi.html" class="hover:text-cyan-400">Materi</a>
+        <a href="studi-kasus.html" class="hover:text-cyan-400">Studi Kasus</a>
+        <a href="galeri.html" class="hover:text-cyan-400">Galeri</a>
+        <a href="sumber.html" class="hover:text-cyan-400">Sumber</a>
+        <a href="tentang.html" class="hover:text-cyan-400">Tentang</a>
       </div>
 
-      <!-- Hamburger Menu Mobile -->
+      <!-- Hamburger -->
       <div class="md:hidden">
         <button id="menu-btn" class="focus:outline-none text-gray-300 hover:text-cyan-400">
-          <svg xmlns="http://www.w3.org/2000/svg" id="menu-icon" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
@@ -64,37 +71,51 @@
     </div>
   </nav>
 
-  <!-- Header Minimalis Modern -->
+  <!-- Header -->
   <header class="pt-28 pb-12 text-center">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-cyan-400">Tentang Website & Pembuat</h1>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-cyan-400">About Me</h1>
     <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
-    <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
-      Sekilas informasi mengenai Basyar dan alasan website ini dibuat.
-    </p>
   </header>
 
   <!-- Content -->
   <main class="max-w-4xl mx-auto p-6 bg-gray-800 mt-6 rounded-xl shadow-lg space-y-10">
 
-  <!-- Profil Basyar -->
-<section class="text-center">
-  <div class="relative inline-block">
-    <img src="rulz.jpeg" alt="Foto Basyar"
-         class="mx-auto w-40 h-40 rounded-full border-4 border-cyan-500 glow transform transition duration-500 hover:scale-105">
-    
-    <!-- Overlay teks muncul saat hover -->
-    <div class="absolute inset-0 flex items-center justify-center bg-black/60 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-500">
-      <span class="text-lg font-bold text-cyan-300">Basyar</span>
-    </div>
-  </div>
+    <!-- Profil Basyar -->
+    <section class="text-center">
+      <div class="relative inline-block">
+        <img src="rulz.jpeg" alt="Foto Basyar"
+             class="mx-auto w-40 h-40 rounded-full border-4 border-cyan-500 glow transform transition duration-500 hover:scale-105">
+        <!-- Overlay teks -->
+        <div class="absolute inset-0 flex items-center justify-center bg-black/60 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-500">
+          <span class="text-lg font-bold text-cyan-300">Basyar</span>
+        </div>
+      </div>
 
-  <p class="italic text-gray-400 mt-4">"Tukang Solat & Teknisi Parkiran"</p>
-  <p class="mt-3 text-gray-300 leading-relaxed">
-    Seorang teknisi sistem parkir otomatis yang berdedikasi. 
-    Terbiasa menangani sensor kendaraan, barrier gate, hingga server monitoring. 
-    Selain itu, saya berusaha menjaga disiplin dalam ibadah dan terus belajar hal-hal baru di bidang maintenance & teknologi.
-  </p>
-</section>
+      <!-- Ikon Sosmed (Heroicons) -->
+      <div class="flex justify-center space-x-10 mt-6 text-gray-400">
+        <!-- GitHub -->
+        <a href="https://github.com/" target="_blank" class="hover:text-cyan-400 transition transform hover:scale-110">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.9c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.1-1.7-1.1-1.7-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .8.1-.6.4-1.1.7-1.3-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.2 11.2 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.4-2.7 5.4-5.3 5.7.4.3.8 1 .8 2.1v3.1c0 .3.2.6.8.5A11.5 11.5 0 0023.5 12c0-6.35-5.15-11.5-11.5-11.5z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://instagram.com/" target="_blank" class="hover:text-pink-500 transition transform hover:scale-110">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9a5.5 5.5 0 01-5.5 5.5h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm5.8-.9a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2z"/>
+          </svg>
+        </a>
+        <!-- TikTok -->
+      <!-- Website Pribadi -->
+<a href="https://rulz-website.com" target="_blank" class="hover:text-green-400 transition transform hover:scale-110">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2c1.6 0 3.1.5 4.3 1.3l-1.3 1.5A6.9 6.9 0 0012 6a7 7 0 000 14 7 7 0 004.9-11.9l1.4-1.5A9 9 0 1112 4z"/>
+    <path d="M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+  </svg>
+</a>
+
+      </div>
+    </section>
 
     <!-- Tujuan Website -->
     <section>
@@ -102,8 +123,7 @@
       <p class="text-gray-300 leading-relaxed">
         Website ini hadir sebagai <span class="text-cyan-300 font-semibold">platform pembelajaran modern</span> 
         tentang sistem <strong>Centralized Maintenance</strong>. 
-        Dirancang untuk mahasiswa teknik maupun siapa saja yang ingin memahami alur kerja sistem parkir otomatis, 
-        baik dari sisi perangkat keras maupun perangkat lunak.
+        Dirancang untuk calon maintenance maupun siapa saja yang ingin memahami alur kerja sistem parkir otomatis.
       </p>
     </section>
 
@@ -113,16 +133,15 @@
       <p class="text-gray-300 leading-relaxed">
         Website ini dikembangkan sebagai bagian dari proyek edukasi. 
         Seluruh konten difokuskan pada pembelajaran praktis, 
-        mulai dari dokumentasi perangkat parkir hingga studi kasus nyata. 
-        Dengan semangat belajar dan berbagi, diharapkan website ini dapat membantu banyak orang memahami dunia maintenance parkir modern.
+        mulai dari dokumentasi perangkat parkir hingga studi kasus nyata.
       </p>
     </section>
 
   </main>
 
- <!-- Footer -->
+  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-400 text-center py-6 border-t border-gray-700">
-    <p>&copy; 2025 - Centralized Maintenance Learning | Develop by Rullz.</p>
+    <p>&copy; 2025 | Develop by Rullz</p>
   </footer>
 
   <script>
