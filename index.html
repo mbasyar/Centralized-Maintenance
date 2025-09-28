@@ -9,34 +9,34 @@
   }
   </script>
 
-  <title>Central Maintenance - Basyar Tukang Solat</title>
+  <title>Centralized Maintenance - CM Learning</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-gray-200 font-sans">
+<body class="bg-gray-950 text-gray-200 font-sans">
 
   <!-- Navbar -->
-  <nav class="bg-gray-800 text-white p-4 shadow-lg">
-    <div class="container mx-auto flex items-center justify-between">
+  <nav class="bg-gray-900/80 backdrop-blur-md fixed w-full z-50 shadow-md">
+    <div class="container mx-auto flex items-center justify-between p-4">
       <!-- Logo + Brand -->
-      <div class="flex items-center space-x-2">
-        <img src="./aset/spi3.jpg" alt="Logo SPI" class="w-8 h-8">
-        <span class="font-bold text-lg">Secure Parking</span>
+      <div class="flex items-center space-x-3">
+        <img src="./aset/cm.jpeg" alt="Logo CM" class="w-10 h-10 rounded-full border border-cyan-500 shadow-md">
+        <span class="font-extrabold text-lg tracking-wide text-cyan-400">CM Learning</span>
       </div>
 
       <!-- Menu Desktop -->
-      <div class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-cyan-400">Beranda</a>
-        <a href="materi.html" class="hover:text-cyan-400">Materi</a>
-        <a href="studi-kasus.html" class="hover:text-cyan-400">Studi Kasus</a>
-        <a href="galeri.html" class="hover:text-cyan-400">Galeri</a>
-        <a href="sumber.html" class="hover:text-cyan-400">Sumber</a>
-        <a href="tentang.html" class="hover:text-cyan-400">Tentang</a>
+      <div class="hidden md:flex space-x-8 font-medium">
+        <a href="index.html" class="hover:text-cyan-400 transition">Beranda</a>
+        <a href="materi.html" class="hover:text-cyan-400 transition">Materi</a>
+        <a href="studi-kasus.html" class="hover:text-cyan-400 transition">Studi Kasus</a>
+        <a href="galeri.html" class="hover:text-cyan-400 transition">Galeri</a>
+        <a href="sumber.html" class="hover:text-cyan-400 transition">Sumber</a>
+        <a href="tentang.html" class="hover:text-cyan-400 transition">Tentang</a>
       </div>
 
       <!-- Hamburger Menu Mobile -->
       <div class="md:hidden">
-        <button id="menu-btn" class="focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button id="menu-btn" class="focus:outline-none text-gray-300 hover:text-cyan-400">
+          <svg xmlns="http://www.w3.org/2000/svg" id="menu-icon" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
@@ -44,7 +44,7 @@
     </div>
 
     <!-- Dropdown Mobile -->
-    <div id="menu" class="hidden md:hidden mt-4 space-y-2">
+    <div id="menu" class="hidden md:hidden mt-4 space-y-3 px-4 pb-4">
       <a href="index.html" class="block hover:text-cyan-400">Beranda</a>
       <a href="materi.html" class="block hover:text-cyan-400">Materi</a>
       <a href="studi-kasus.html" class="block hover:text-cyan-400">Studi Kasus</a>
@@ -54,61 +54,89 @@
     </div>
   </nav>
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-cyan-700 to-cyan-900 text-white p-8 text-center shadow-md">
-    <h1 class="text-3xl font-bold mb-2">Maintenance Secure Parking</h1>
-    <p class="text-lg">Mengenal bagian-bagian penting dalam sistem parkir otomatis modern</p>
+  <!-- Hero Section -->
+  <header class="relative bg-gradient-to-r from-cyan-700 via-cyan-800 to-gray-900 text-white text-center pt-32 pb-20 shadow-lg">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] opacity-10"></div>
+    <div class="relative z-10">
+      <h1 class="text-5xl font-extrabold mb-6 tracking-wide drop-shadow-lg">Centralized Maintenance (CM)</h1>
+      <p class="text-lg opacity-90 max-w-2xl mx-auto leading-relaxed">
+        Platform pembelajaran modern untuk memahami sistem parkir, 
+        dari perangkat keras hingga software integrasi.
+      </p>
+      <div class="mt-8">
+        <a href="materi.html" class="px-6 py-3 bg-cyan-600 text-white font-semibold rounded-full shadow-lg hover:scale-105 hover:bg-cyan-500 transition transform">
+          Mulai Belajar
+        </a>
+      </div>
+    </div>
   </header>
 
-  <!-- Content -->
-  <main class="max-w-5xl mx-auto my-10 p-6 bg-gray-800 rounded-xl shadow-lg space-y-10">
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto my-20 px-6 space-y-24">
 
-    <!-- Sensor Kendaraan -->
-    <section>
-      <h2 class="text-xl font-bold text-cyan-400 mb-2">1. Sensor Kendaraan</h2>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Inductive_loop_detector.jpg/800px-Inductive_loop_detector.jpg" alt="Sensor Kendaraan" class="rounded shadow mb-3 w-full max-w-md">
-      <p class="text-gray-300">Sensor ini digunakan untuk mendeteksi keberadaan kendaraan saat masuk dan keluar area parkir. Biasanya menggunakan teknologi seperti loop inductive atau ultrasonic.</p>
-      <a href="https://en.wikipedia.org/wiki/Inductive_loop" target="_blank" class="text-cyan-400 hover:underline">Baca selengkapnya (Wikipedia)</a>
+    <!-- Tentang CM -->
+    <section class="text-center">
+      <h2 class="text-3xl font-bold text-cyan-400 mb-6">Apa itu CM?</h2>
+      <p class="text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        Centralized Maintenance adalah pendekatan terpusat dalam pemeliharaan sistem parkir otomatis.
+        Website ini hadir sebagai pusat belajar untuk teknisi maupun pemula, mencakup sensor,
+        barrier gate, POS client, kamera IP, hingga server monitoring.
+      </p>
     </section>
 
-    <!-- Barrier Gate -->
+    <!-- Fitur Utama -->
     <section>
-      <h2 class="text-xl font-bold text-cyan-400 mb-2">2. Barrier Gate Otomatis</h2>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Parking_barrier_gate.jpg/800px-Parking_barrier_gate.jpg" alt="Barrier Gate" class="rounded shadow mb-3 w-full max-w-md">
-      <p class="text-gray-300">Barrier gate berfungsi untuk mengatur keluar masuk kendaraan. Sistem ini biasanya terhubung ke sistem pembayaran dan kontrol tiket.</p>
-      <a href="https://en.wikipedia.org/wiki/Boom_barrier" target="_blank" class="text-cyan-400 hover:underline">Pelajari lebih lanjut</a>
+      <h2 class="text-3xl font-bold text-cyan-400 mb-12 text-center">Fitur Pembelajaran</h2>
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div class="p-6 bg-gray-900/70 backdrop-blur-md rounded-xl shadow-lg border border-gray-700 hover:border-cyan-500 transition transform hover:-translate-y-2">
+          <h3 class="text-xl font-semibold text-cyan-300 mb-3">Materi</h3>
+          <p class="text-gray-400">Pelajari perangkat parkir secara sistematis dengan penjelasan sederhana.</p>
+        </div>
+        <div class="p-6 bg-gray-900/70 backdrop-blur-md rounded-xl shadow-lg border border-gray-700 hover:border-cyan-500 transition transform hover:-translate-y-2">
+          <h3 class="text-xl font-semibold text-cyan-300 mb-3">Studi Kasus</h3>
+          <p class="text-gray-400">Belajar dari masalah nyata di lapangan dan cara teknisi menyelesaikannya.</p>
+        </div>
+        <div class="p-6 bg-gray-900/70 backdrop-blur-md rounded-xl shadow-lg border border-gray-700 hover:border-cyan-500 transition transform hover:-translate-y-2">
+          <h3 class="text-xl font-semibold text-cyan-300 mb-3">Galeri</h3>
+          <p class="text-gray-400">Koleksi gambar & dokumentasi perangkat parkir untuk referensi visual.</p>
+        </div>
+        <div class="p-6 bg-gray-900/70 backdrop-blur-md rounded-xl shadow-lg border border-gray-700 hover:border-cyan-500 transition transform hover:-translate-y-2">
+          <h3 class="text-xl font-semibold text-cyan-300 mb-3">Sumber</h3>
+          <p class="text-gray-400">Kumpulan artikel & referensi resmi untuk memperdalam pengetahuan.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Mesin Pembayaran -->
-    <section>
-      <h2 class="text-xl font-bold text-cyan-400 mb-2">3. Mesin Pembayaran Digital</h2>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Parking_payment_machine.jpg/800px-Parking_payment_machine.jpg" alt="Mesin Pembayaran" class="rounded shadow mb-3 w-full max-w-md">
-      <p class="text-gray-300">Mesin ini memungkinkan pengguna membayar parkir secara otomatis menggunakan uang tunai, kartu, atau metode digital lainnya.</p>
-      <a href="https://en.wikipedia.org/wiki/Parking_meter" target="_blank" class="text-cyan-400 hover:underline">Sumber Wikipedia</a>
-    </section>
-
-    <!-- CCTV & Server Monitoring -->
-    <section>
-      <h2 class="text-xl font-bold text-cyan-400 mb-2">4. CCTV dan Server Monitoring</h2>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/CCTV_camera_in_public_place.jpg/800px-CCTV_camera_in_public_place.jpg" alt="CCTV Monitoring" class="rounded shadow mb-3 w-full max-w-md">
-      <p class="text-gray-300">Sistem kamera CCTV digunakan untuk memantau kondisi parkiran dan mendukung keamanan kendaraan. Server pusat mengontrol seluruh perangkat parkir.</p>
-      <a href="https://en.wikipedia.org/wiki/Closed-circuit_television" target="_blank" class="text-cyan-400 hover:underline">Penjelasan CCTV (Wikipedia)</a>
+    <!-- Call to Action -->
+    <section class="text-center">
+      <h2 class="text-3xl font-bold text-cyan-400 mb-4">Tingkatkan Skill Maintenance Anda</h2>
+      <p class="text-gray-300 mb-6 max-w-xl mx-auto">Akses semua materi secara gratis, belajar interaktif, dan siap menghadapi tantangan di lapangan.</p>
+      <a href="materi.html" class="px-8 py-3 bg-gradient-to-r from-cyan-600 to-cyan-400 text-gray-900 font-bold rounded-full shadow-xl hover:scale-110 transition transform">
+        Lihat Materi
+      </a>
     </section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-gray-400 text-center p-4 mt-10 border-t border-gray-700">
-    <p>&copy; 2025 - Cerita Teknisi Basyar. Dibuat dengan Tailwind CSS.</p>
+  <footer class="bg-gray-900 text-gray-400 text-center py-6 border-t border-gray-700">
+    <p>&copy; 2025 - Centralized Maintenance Learning | Develop by Rullz.</p>
   </footer>
 
   <script>
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('menu');
+    const menuIcon = document.getElementById('menu-icon');
 
     btn.addEventListener('click', () => {
       menu.classList.toggle('hidden');
+      if (!menu.classList.contains('hidden')) {
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+      } else {
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+      }
     });
   </script>
+
 </body>
 </html>

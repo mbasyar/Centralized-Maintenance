@@ -12,7 +12,7 @@
   <title>Tentang Basyar & Website</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Efek animasi glow */
+    /* Efek glow */
     @keyframes glow {
       0%, 100% { box-shadow: 0 0 15px #06b6d4, 0 0 30px #0ea5e9; }
       50% { box-shadow: 0 0 25px #38bdf8, 0 0 50px #0ea5e9; }
@@ -25,66 +25,112 @@
 <body class="bg-gray-900 font-sans text-gray-200">
 
   <!-- Navbar -->
-  <nav class="bg-gray-800 text-white p-4 shadow-md">
-    <div class="container mx-auto flex items-center justify-between">
-      <div class="flex items-center space-x-2">
-        <img src="./aset/spi3.jpg" alt="Logo SPI" class="w-8 h-8 rounded">
-        <span class="font-bold text-lg">Secure Parking</span>
+  <nav class="bg-gray-900/80 backdrop-blur-md fixed w-full z-50 shadow-md">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <!-- Logo + Brand -->
+      <div class="flex items-center space-x-3">
+        <img src="./aset/cm.jpeg" alt="Logo CM" class="w-10 h-10 rounded-full border border-cyan-500 shadow-md">
+        <span class="font-extrabold text-lg tracking-wide text-cyan-400">CM Learning</span>
       </div>
-      <div class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-cyan-400">Beranda</a>
-        <a href="materi.html" class="hover:text-cyan-400">Materi</a>
-        <a href="studi-kasus.html" class="hover:text-cyan-400">Studi Kasus</a>
-        <a href="galeri.html" class="hover:text-cyan-400">Galeri</a>
-        <a href="sumber.html" class="hover:text-cyan-400">Sumber</a>
-        <a href="tentang.html" class="text-cyan-400 font-bold">Tentang</a>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex space-x-8 font-medium">
+        <a href="index.html" class="hover:text-cyan-400 transition">Beranda</a>
+        <a href="materi.html" class="hover:text-cyan-400 transition">Materi</a>
+        <a href="studi-kasus.html" class="hover:text-cyan-400 transition">Studi Kasus</a>
+        <a href="galeri.html" class="hover:text-cyan-400 transition">Galeri</a>
+        <a href="sumber.html" class="hover:text-cyan-400 transition">Sumber</a>
+        <a href="tentang.html" class="hover:text-cyan-400 transition">Tentang</a>
       </div>
+
+      <!-- Hamburger Menu Mobile -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="focus:outline-none text-gray-300 hover:text-cyan-400">
+          <svg xmlns="http://www.w3.org/2000/svg" id="menu-icon" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dropdown Mobile -->
+    <div id="menu" class="hidden md:hidden mt-4 space-y-3 px-4 pb-4">
+      <a href="index.html" class="block hover:text-cyan-400">Beranda</a>
+      <a href="materi.html" class="block hover:text-cyan-400">Materi</a>
+      <a href="studi-kasus.html" class="block hover:text-cyan-400">Studi Kasus</a>
+      <a href="galeri.html" class="block hover:text-cyan-400">Galeri</a>
+      <a href="sumber.html" class="block hover:text-cyan-400">Sumber</a>
+      <a href="tentang.html" class="block hover:text-cyan-400">Tentang</a>
     </div>
   </nav>
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-cyan-700 to-cyan-900 text-white p-8 text-center shadow">
-    <h1 class="text-3xl font-bold mb-2">Tentang Basyar & Proyek Ini</h1>
-    <p class="text-lg">Teknisi yang solat tepat waktu, dan website edukatif tentang Central Maintenance</p>
+  <!-- Header Minimalis Modern -->
+  <header class="pt-28 pb-12 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-cyan-400">Tentang Website & Pembuat</h1>
+    <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
+    <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+      Sekilas informasi mengenai Basyar dan alasan website ini dibuat.
+    </p>
   </header>
 
   <!-- Content -->
-  <main class="max-w-3xl mx-auto p-6 bg-gray-800 mt-10 rounded-xl shadow-lg space-y-8">
+  <main class="max-w-4xl mx-auto p-6 bg-gray-800 mt-6 rounded-xl shadow-lg space-y-10">
 
-    <!-- Profil Basyar -->
-    <section class="text-center">
-      <div class="relative inline-block">
-        <img src="rulz.jpeg" alt="Ilustrasi Basyar"
-             class="mx-auto w-40 h-40 rounded-full border-4 border-cyan-500 glow transform transition duration-500 hover:scale-105">
-      </div>
-      <h2 class="text-xl font-semibold text-cyan-400 mt-4">Basyar, Tukang Solat & Teknisi Parkiran</h2>
-      <p class="mt-2 text-gray-300">
-        Basyar adalah teknisi sistem parkir otomatis yang berdedikasi. Selain terampil dalam menangani peralatan seperti sensor, barrier gate, dan server monitoring, ia juga dikenal sebagai pribadi yang disiplin dalam ibadah.
+  <!-- Profil Basyar -->
+<section class="text-center">
+  <div class="relative inline-block">
+    <img src="rulz.jpeg" alt="Foto Basyar"
+         class="mx-auto w-40 h-40 rounded-full border-4 border-cyan-500 glow transform transition duration-500 hover:scale-105">
+    
+    <!-- Overlay teks muncul saat hover -->
+    <div class="absolute inset-0 flex items-center justify-center bg-black/60 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-500">
+      <span class="text-lg font-bold text-cyan-300">Basyar</span>
+    </div>
+  </div>
+
+  <p class="italic text-gray-400 mt-4">"Tukang Solat & Teknisi Parkiran"</p>
+  <p class="mt-3 text-gray-300 leading-relaxed">
+    Seorang teknisi sistem parkir otomatis yang berdedikasi. 
+    Terbiasa menangani sensor kendaraan, barrier gate, hingga server monitoring. 
+    Selain itu, saya berusaha menjaga disiplin dalam ibadah dan terus belajar hal-hal baru di bidang maintenance & teknologi.
+  </p>
+</section>
+
+    <!-- Tujuan Website -->
+    <section>
+      <h2 class="text-xl font-semibold text-cyan-400 mb-2">🎯 Tujuan Website</h2>
+      <p class="text-gray-300 leading-relaxed">
+        Website ini hadir sebagai <span class="text-cyan-300 font-semibold">platform pembelajaran modern</span> 
+        tentang sistem <strong>Centralized Maintenance</strong>. 
+        Dirancang untuk mahasiswa teknik maupun siapa saja yang ingin memahami alur kerja sistem parkir otomatis, 
+        baik dari sisi perangkat keras maupun perangkat lunak.
       </p>
     </section>
 
-    <!-- Tentang Proyek Website -->
+    <!-- Tentang Pembuat -->
     <section>
-      <h2 class="text-xl font-semibold text-cyan-400">🎯 Tujuan Website Ini</h2>
-      <p class="text-gray-300 mt-2">
-        Website ini dibuat sebagai media pembelajaran untuk mahasiswa teknik atau siapa saja yang ingin memahami bagaimana sistem <strong>Central Maintenance</strong> bekerja dalam sistem parkir otomatis. Setiap halaman berisi materi ringkas, gambar, studi kasus nyata, dan referensi ilmiah.
-      </p>
-    </section>
-
-    <!-- Pembuat -->
-    <section>
-      <h2 class="text-xl font-semibold text-cyan-400">👨‍💻 Tentang Pembuat</h2>
-      <p class="text-gray-300 mt-2">
-        Website ini dikembangkan oleh mahasiswa sebagai bagian dari tugas projek mata kuliah Sistem Pengendalian Industri (SPI). Semua isi bersifat edukatif dan dapat dikembangkan lebih lanjut.
+      <h2 class="text-xl font-semibold text-cyan-400 mb-2">👨‍💻 Tentang Pembuat</h2>
+      <p class="text-gray-300 leading-relaxed">
+        Website ini dikembangkan sebagai bagian dari proyek edukasi. 
+        Seluruh konten difokuskan pada pembelajaran praktis, 
+        mulai dari dokumentasi perangkat parkir hingga studi kasus nyata. 
+        Dengan semangat belajar dan berbagi, diharapkan website ini dapat membantu banyak orang memahami dunia maintenance parkir modern.
       </p>
     </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-gray-400 text-center p-4 mt-10 border-t border-gray-700">
-    <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
+ <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 text-center py-6 border-t border-gray-700">
+    <p>&copy; 2025 - Centralized Maintenance Learning | Develop by Rullz.</p>
   </footer>
 
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>

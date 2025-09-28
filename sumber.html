@@ -9,44 +9,42 @@
   }
   </script>
 
-  <title>Referensi & Sumber Belajar</title>
+  <title>Sumber Belajar & Tools - CM</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 font-sans text-gray-200">
 
   <!-- Navbar -->
-  <nav class="bg-gray-800 text-white p-4 shadow-md">
-    <div class="container mx-auto flex items-center justify-between">
-      <!-- Logo + Brand -->
-      <div class="flex items-center space-x-2">
-        <img src="./aset/spi3.jpg" alt="Logo SPI" class="w-8 h-8">
-        <span class="font-bold text-lg">Secure Parking</span>
+  <nav class="bg-gray-900/80 backdrop-blur-md fixed w-full z-50 shadow-md">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <img src="./aset/cm.jpeg" alt="Logo CM" class="w-10 h-10 rounded-full border border-cyan-500 shadow-md">
+        <span class="font-extrabold text-lg tracking-wide text-cyan-400">CM Learning</span>
       </div>
 
       <!-- Menu Desktop -->
-      <div class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-cyan-400">Beranda</a>
-        <a href="materi.html" class="hover:text-cyan-400">Materi</a>
-        <a href="studi-kasus.html" class="hover:text-cyan-400">Studi Kasus</a>
-        <a href="galeri.html" class="hover:text-cyan-400">Galeri</a>
+      <div class="hidden md:flex space-x-8 font-medium">
+        <a href="index.html" class="hover:text-cyan-400 transition">Beranda</a>
+        <a href="materi.html" class="hover:text-cyan-400 transition">Materi</a>
+        <a href="studi-kasus.html" class="hover:text-cyan-400 transition">Studi Kasus</a>
+        <a href="galeri.html" class="hover:text-cyan-400 transition">Galeri</a>
         <a href="sumber.html" class="text-cyan-400 font-bold">Sumber</a>
-        <a href="tentang.html" class="hover:text-cyan-400">Tentang</a>
+        <a href="tentang.html" class="hover:text-cyan-400 transition">Tentang</a>
       </div>
 
-      <!-- Hamburger Mobile -->
+      <!-- Hamburger Menu -->
       <div class="md:hidden">
-        <button id="menu-btn" class="focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
-               viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  d="M4 6h16M4 12h16M4 18h16" />
+        <button id="menu-btn" class="focus:outline-none text-gray-300 hover:text-cyan-400">
+          <svg xmlns="http://www.w3.org/2000/svg" id="menu-icon" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
     </div>
 
     <!-- Dropdown Mobile -->
-    <div id="menu" class="hidden md:hidden mt-4 space-y-2">
+    <div id="menu" class="hidden md:hidden mt-4 space-y-3 px-4 pb-4">
       <a href="index.html" class="block hover:text-cyan-400">Beranda</a>
       <a href="materi.html" class="block hover:text-cyan-400">Materi</a>
       <a href="studi-kasus.html" class="block hover:text-cyan-400">Studi Kasus</a>
@@ -56,46 +54,59 @@
     </div>
   </nav>
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-cyan-700 to-cyan-900 text-white p-8 text-center shadow">
-    <h1 class="text-3xl font-bold mb-2">Referensi & Sumber Belajar</h1>
-    <p class="text-lg">Kumpulan link eksternal untuk pendalaman materi Central Maintenance</p>
+  <!-- Hero -->
+  <header class="relative bg-gradient-to-r from-cyan-700 via-cyan-800 to-gray-900 text-white text-center pt-32 pb-20 shadow-lg">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] opacity-10"></div>
+    <div class="relative z-10">
+      <h1 class="text-5xl font-extrabold mb-6 tracking-wide drop-shadow-lg">Pusat Sumber Belajar & Tools</h1>
+      <p class="text-lg opacity-90 max-w-2xl mx-auto leading-relaxed">
+        Kumpulan tools, driver, dan link penting yang dibutuhkan untuk instalasi, konfigurasi, 
+        serta maintenance sistem parkir berbasis CM.
+      </p>
+    </div>
   </header>
 
   <!-- Content -->
-  <main class="max-w-4xl mx-auto my-10 p-6 bg-gray-800 rounded-xl shadow-lg space-y-8">
+  <main class="max-w-5xl mx-auto my-10 p-6 bg-gray-800 rounded-xl shadow space-y-10">
 
-    <div>
-      <h2 class="text-xl font-semibold text-cyan-400">📘 Artikel & Dokumentasi</h2>
-      <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-300">
-        <li><a href="https://en.wikipedia.org/wiki/Automated_parking_system" target="_blank" class="text-cyan-400 hover:underline">Wikipedia: Automated Parking System</a></li>
-        <li><a href="https://www.parking-net.com/parking-industry-blog/payment-kiosks" target="_blank" class="text-cyan-400 hover:underline">Blog: Cara Kerja Kios Pembayaran Parkir</a></li>
-        <li><a href="https://www.parkplus.io/blog/what-is-parking-maintenance" target="_blank" class="text-cyan-400 hover:underline">Park+: What is Parking Maintenance?</a></li>
-        <li><a href="https://www.parking.net/parking-news/gtechna/parking-maintenance-automation" target="_blank" class="text-cyan-400 hover:underline">Parking.net: Automation in Maintenance</a></li>
+    <!-- Tools Bootable -->
+    <section>
+      <h2 class="text-2xl font-bold text-cyan-400 mb-4">🔧 Tools Bootable</h2>
+      <ul class="space-y-3">
+        <li><a href="https://rufus.ie/" target="_blank" class="text-blue-400 hover:underline">Rufus (Buat USB Bootable)</a></li>
+        <li><a href="https://getfedora.org/" target="_blank" class="text-blue-400 hover:underline">Fedora ISO (Resmi)</a></li>
+        <li><a href="https://archive.org/details/Win7" target="_blank" class="text-blue-400 hover:underline">Windows 7 ISO</a></li>
+        <li><a href="https://www.microsoft.com/software-download/windows10" target="_blank" class="text-blue-400 hover:underline">Windows 10 ISO (Microsoft)</a></li>
       </ul>
-    </div>
+    </section>
 
-    <div>
-      <h2 class="text-xl font-semibold text-cyan-400">🎥 Video & Visualisasi</h2>
-      <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-300">
-        <li><a href="https://www.youtube.com/watch?v=vVu1JavqZzE" target="_blank" class="text-cyan-400 hover:underline">YouTube: Automated Parking System Explained</a></li>
-        <li><a href="https://www.youtube.com/watch?v=1Ec03T-pnng" target="_blank" class="text-cyan-400 hover:underline">YouTube: Smart Parking Technology</a></li>
+    <!-- Driver & Software -->
+    <section>
+      <h2 class="text-2xl font-bold text-cyan-400 mb-4">💽 Driver & Software</h2>
+      <ul class="space-y-3">
+        <li><a href="https://www.nvidia.com/Download/index.aspx" target="_blank" class="text-blue-400 hover:underline">NVIDIA Driver</a></li>
+        <li><a href="https://www.amd.com/en/support" target="_blank" class="text-blue-400 hover:underline">AMD Driver</a></li>
+        <li><a href="https://www.intel.com/content/www/us/en/download-center/home.html" target="_blank" class="text-blue-400 hover:underline">Intel Chipset Driver</a></li>
+        <li><a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" class="text-blue-400 hover:underline">Java Runtime (JRE/JDK)</a></li>
       </ul>
-    </div>
+    </section>
 
-    <div>
-      <h2 class="text-xl font-semibold text-cyan-400">📚 Jurnal & Akademik</h2>
-      <ul class="list-disc pl-6 mt-2 space-y-2 text-gray-300">
-        <li><a href="https://ieeexplore.ieee.org/document/9174035" target="_blank" class="text-cyan-400 hover:underline">IEEE: Centralized Parking System Monitoring</a></li>
-        <li><a href="https://www.sciencedirect.com/science/article/pii/S1877050920307250" target="_blank" class="text-cyan-400 hover:underline">ScienceDirect: Smart Parking & IoT</a></li>
+    <!-- Resource Maintenance -->
+    <section>
+      <h2 class="text-2xl font-bold text-cyan-400 mb-4">📚 Resource Maintenance</h2>
+      <ul class="space-y-3">
+        <li><a href="https://www.w3schools.com/sql/" target="_blank" class="text-blue-400 hover:underline">SQL Database Dasar (untuk server parkir)</a></li>
+        <li><a href="https://networklessons.com/" target="_blank" class="text-blue-400 hover:underline">Dasar Jaringan & Kabel (LAN, IP, VLAN)</a></li>
+        <li><a href="https://www.cisco.com/c/en/us/training-events/training-certifications/exams/current-list/ccna.html" target="_blank" class="text-blue-400 hover:underline">Cisco CCNA (Jaringan Maintenance)</a></li>
+        <li><a href="https://www.youtube.com/results?search_query=parking+system+maintenance" target="_blank" class="text-blue-400 hover:underline">YouTube Video Maintenance Sistem Parkir</a></li>
       </ul>
-    </div>
+    </section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-gray-400 text-center p-4 mt-10 border-t border-gray-700">
-    <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
+  <footer class="bg-gray-900 text-gray-400 text-center py-6 border-t border-gray-700">
+    <p>&copy; 2025 - Centralized Maintenance Learning | Develop by Rullz.</p>
   </footer>
 
   <script>
