@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Konfigurasi Barrier Gate</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-900 text-white p-4 flex space-x-6 flex-wrap">
+    <a href="index.html" class="hover:underline">Beranda</a>
+    <a href="materi.html" class="hover:underline">Materi</a>
+    <a href="konfigurasi-barrier.html" class="hover:underline font-bold">Barrier Gate</a>
+    <a href="setting-ip-kamera.html" class="hover:underline">IP Kamera</a>
+    <a href="pos-client.html" class="hover:underline">POS Client</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-blue-800 text-white p-8 text-center">
+    <h1 class="text-3xl font-bold mb-2">Konfigurasi Barrier Gate (Palang Otomatis)</h1>
+    <p class="text-lg">Panduan pemasangan dan integrasi barrier dengan sistem kontrol parkir</p>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-3xl mx-auto p-6 bg-white my-10 rounded shadow space-y-8">
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">1. Komponen Terkait</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Barrier Gate (contoh: MAG BR500, CAME, Taliwang)</li>
+        <li>Modul relay controller (USB/Serial)</li>
+        <li>POS Client (dengan software kontrol gate)</li>
+        <li>Kabel data RS232/RS485 atau TCP/IP</li>
+        <li>Catu daya / power supply</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">2. Wiring dan Pemasangan</h2>
+      <ol class="list-decimal pl-6 text-gray-700 space-y-1">
+        <li>Pasang barrier di lokasi gate masuk/keluar</li>
+        <li>Sambungkan kabel “Open” dan “Close” ke relay</li>
+        <li>Hubungkan modul relay ke komputer POS (via USB/COM)</li>
+        <li>Pastikan ground listrik tersambung ke barrier & kontroler</li>
+        <li>Aktifkan sensor safety (loop detector / infrared sensor)</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">3. Pengaturan di Software</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Buka POS Client → masuk ke menu “Device Settings”</li>
+        <li>Pilih port relay (COM3/COM4 tergantung PC)</li>
+        <li>Atur waktu buka/tutup otomatis (misalnya: buka 5 detik)</li>
+        <li>Uji coba tombol manual OPEN dan CLOSE dari software</li>
+        <li>Cek respons barrier saat kartu/tiket berhasil diproses</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">4. Troubleshooting Umum</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Jika barrier tidak merespons, cek power supply & sambungan kabel</li>
+        <li>Cek port COM di Device Manager (Windows)</li>
+        <li>Pastikan tidak ada konflik COM port antar perangkat</li>
+        <li>Gunakan multimeter untuk memastikan output relay bekerja</li>
+        <li>Pastikan sensor safety tidak menghalangi proses penutupan</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">5. Tips Instalasi</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Gunakan box kontrol yang aman dari cuaca dan gangguan fisik</li>
+        <li>Selalu uji sistem sebelum diaktifkan secara live</li>
+        <li>Siapkan tombol manual override untuk keadaan darurat</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">6. Referensi Tambahan</h2>
+      <ul class="list-disc pl-6 text-blue-600 space-y-2">
+        <li><a href="https://www.youtube.com/watch?v=3ggmoy04FVo" target="_blank" class="hover:underline">Video: Wiring Barrier Gate</a></li>
+        <li><a href="https://barriergate.co.id/manual" target="_blank" class="hover:underline">Manual Barrier MAG Indonesia</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center p-4 mt-10">
+    <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
+  </footer>
+
+</body>
+</html>

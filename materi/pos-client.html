@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instalasi POS Client</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-900 text-white p-4 flex space-x-6 flex-wrap">
+    <a href="index.html" class="hover:underline">Beranda</a>
+    <a href="materi.html" class="hover:underline">Materi</a>
+    <a href="pos-client.html" class="hover:underline font-bold">POS Client</a>
+    <a href="fedora-admin.html" class="hover:underline">Fedora Admin</a>
+    <a href="sumber.html" class="hover:underline">Sumber</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-blue-800 text-white p-8 text-center">
+    <h1 class="text-3xl font-bold mb-2">Instalasi & Konfigurasi POS Client</h1>
+    <p class="text-lg">Digunakan di komputer gate parkir untuk mengelola tiket & akses kendaraan</p>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-3xl mx-auto p-6 bg-white my-10 rounded shadow space-y-8">
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">1. Persiapan</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Komputer client dengan OS Windows (7/10)</li>
+        <li>Koneksi LAN ke server Fedora</li>
+        <li>Installer POS Client (*.exe), biasanya dari vendor</li>
+        <li>Printer thermal (untuk cetak tiket)</li>
+        <li>Reader kartu/member (opsional)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">2. Instalasi Software</h2>
+      <ol class="list-decimal pl-6 text-gray-700 space-y-1">
+        <li>Jalankan installer POS Client</li>
+        <li>Pilih direktori instalasi (biarkan default jika tidak yakin)</li>
+        <li>Ikuti wizard sampai selesai</li>
+        <li>Restart komputer setelah instalasi</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">3. Setting Koneksi ke Server</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Buka aplikasi POS Client</li>
+        <li>Masuk ke menu “Settings” atau “Configuration”</li>
+        <li>Isi IP Server: `192.168.1.10` (contoh IP Fedora Server)</li>
+        <li>Pilih Port komunikasi: misalnya `8080` atau `3306` untuk MySQL</li>
+        <li>Test koneksi: pastikan status "Connected"</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">4. Integrasi Perangkat</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Pasang printer thermal ke port USB</li>
+        <li>Install driver printer jika belum otomatis terdeteksi</li>
+        <li>Uji cetak tiket dari menu POS</li>
+        <li>Pasang card reader (jika pakai RFID/Mifare), dan sambungkan via USB</li>
+        <li>Uji pembacaan kartu</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">5. Tips Tambahan</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Gunakan aplikasi VNC untuk remote konfigurasi POS dari server</li>
+        <li>Hindari restart mendadak saat proses transaksi berlangsung</li>
+        <li>Backup konfigurasi POS secara berkala</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">6. Referensi</h2>
+      <ul class="list-disc pl-6 text-blue-600 space-y-2">
+        <li><a href="https://www.youtube.com/watch?v=7P_P54XBbMs" target="_blank" class="hover:underline">Video setup POS Gate (YouTube)</a></li>
+        <li><a href="https://www.possystem.com/setup" target="_blank" class="hover:underline">Dokumentasi POS System</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center p-4 mt-10">
+    <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
+  </footer>
+
+</body>
+</html>

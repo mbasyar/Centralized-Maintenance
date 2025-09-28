@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Patching & Pengambilan Data via SSH - Sistem Parkir</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-900 text-white p-4 flex flex-wrap gap-3">
+    <a href="index.html" class="hover:underline">Beranda</a>
+    <a href="materi.html" class="hover:underline">Materi</a>
+    <a href="fedora-admin.html" class="hover:underline">Fedora Admin</a>
+    <a href="install-windows.html" class="hover:underline">Windows</a>
+    <a href="patching.html" class="hover:underline font-bold">Patching</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-blue-800 text-white p-8 text-center">
+    <h1 class="text-3xl font-bold">Patching & Pengambilan Data via Terminal (SSH)</h1>
+    <p class="mt-2">Panduan praktis: cek IP, update/patch Fedora, akses via <code>ssh root@</code>, ambil file/database ke CPU</p>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6 bg-white mt-8 rounded shadow space-y-6">
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700">Ringkasan Singkat</h2>
+      <p class="text-gray-700">Alur umum setelah instalasi OS pada server parkir:</p>
+      <ol class="list-decimal pl-6 text-gray-700">
+        <li>Cek alamat IP & konektivitas</li>
+        <li>Akses server via SSH (hindari telnet)</li>
+        <li>Lakukan update/patching (dnf)</li>
+        <li>Ambil data yang diperlukan ke CPU/komputer admin (scp/rsync/ssh)</li>
+        <li>Restart layanan & cek log</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700">1) Cek IP & Konektivitas</h2>
+      <p class="text-gray-700">Beberapa perintah berguna di terminal Fedora:</p>
+      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
+# Lihat alamat IP
+ip addr show
+
+# Lihat route/gateway
+ip route
+
+# Cek koneksi ke server lain
+ping -c 4 192.168.1.10
+
+# Cek port (contoh: SSH 22 atau MySQL 3306)
+nc -vz 192.168.1.10 22
+</code></pre>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700">2) Akses Server — SSH (rekomendasi)</h2>
+      <p class="text-gray-700">
+        Umumnya akses remote dimulai dengan <code>ssh root@IP</code>. Contoh:
+      </p>
+      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
+# Login sebagai root (contoh)
+ssh root@192.168.1.10
+
+# Jika port SSH bukan 22
+ssh -p 2222 root@192.168.1.10
+</code></pre>
+      <p class="text-yellow-700"><strong>Catatan keamanan:</strong> Jangan gunakan <code>telnet</code> untuk akses shell — telnet mengirimkan data (termasuk password) tanpa enkripsi. Gunakan SSH yang terenkripsi. </p>
+
+      <p class="text-gray-700">Lebih aman: gunakan SSH key pair (tanpa password interaktif) — contoh singkat pembuatan key dan pasang ke server:</p>
+      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
+# Buat key di komputer admin
+ssh-keygen -t ed25519 -C "admin@parkir"
+
+# Copy public key ke server (pakai password sekali)
+ssh-copy-id -i ~/.ssh/id_ed25519.pub root@192.168.1.10
+</code></pre>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700">3) Patching / Update Fedora</h2>
+      <p class="text-gray-700">Langkah standar untuk mengaplikasikan update:</p>
+      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
+# Periksa update
+sudo dnf check-update
+
+# Lakukan update (non-interactive)
+sudo dnf update -y
+
+# Jika kernel baru terpasang, reboot server
+sudo reboot
+</code></pre>
+      <p class="text-gray-700">Setelah update, cek versi kernel dan status:</p>
+      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
+uname -r
+sudo systemctl status sshd
+sudo journalctl -u your-service-name -n 50
+</code></pre>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700">4) Mengambil File / Data dari Server ke CPU (Admin)</h2>
+      <p class="text-gray-700">Metode umum: <code>scp</code>, <code>rsync</code>, atau menjalankan perintah via <code>ssh</code> dan redirect output.</p>
+
+      <h3 class="font-semibold mt-2 text-gray-800">a) Menggunakan <code>scp</code> (simpel)</h3>
+      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
+# Salin file dari server ke lokal (contoh)
+scp root@192.168.1.10:/var/log/parking/app.log ./app.log
+
+# Jika port SSH custom
+scp -P 2222 root@192.168.1.10:/path/to/file ./file
+</code></pre>
+
+      <h3 class="font-semibold mt-2 text-gray-800">b) Menggunakan <code>rsync</code> (lebih efisien untuk folder besar)</h3>
+      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
+# Sinkron folder /var/lib/mysql (contoh) ke lokal, lewat SSH
+rsync -avz -e "ssh -p 22" root@192.168.1.10:/var/lib/mysql/ /backup/mysql/
+
+# Hanya transfer file yang berubah, cocok untuk backup berkala
+</code></pre>
+
+      <h3 class="font-semibold mt-2 text-gray-800">c) Menjalankan perintah jarak jauh dan menyimpan hasilnya</h3>
+      <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto"><code>
+# Jalankan dump DB di server dan simpan output ke file lokal
+ssh root@192.168.1.10 "mysqldump -u dbuser -p'password' parking_db" > parking_db_dump.sql
+
+# Tar & compress folder lalu unduh langsung:
+ssh root@192.168.1.10 "tar czf - /var/log/parking" > parking_logs.tar.gz
+</code></pre>
+
+      <p class="text-gray-700">Pastikan data sensitif ditransfer melalui jaringan internal yang aman (VLAN atau VPN jika lewat publik).</p>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700">5) Contoh Workflow Patching + Ambil Data</h2>
+      <p class="text-gray-700">Contoh langkah yang biasa dilakukan teknisi setelah instalasi OS:</p>
+      <ol class="list-decimal pl-6 text-gray-700">
+        <li>SSH ke server: <code>ssh root@192.168.1.10</code></li>
+        <li>Periksa IP & kondisi: <code>ip addr; free -h; df -h</code></li>
+        <li>Ambil snapshot log atau DB untuk backup:  
+          <code class="block bg-gray-100 p-2 rounded text-sm mt-2">ssh root@192.168.1.10 "tar czf - /var/log/parking" &gt; /home/admin/parking_logs_$(date +%F).tar.gz</code>
+        </li>
+        <li>Jalankan update: <code>sudo dnf update -y</code></li>
+        <li>Restart service penting: <code>sudo systemctl restart nginx</code> (atau service lain)</li>
+        <li>Periksa log & status: <code>sudo journalctl -u nginx -n 50</code></li>
+        <li>Jika perlu, sinkron file konfigurasi ke CPU admin via <code>scp</code> atau <code>rsync</code></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700">6) Keamanan & Praktik Baik</h2>
+      <ul class="list-disc pl-6 text-gray-700">
+        <li><strong>Jangan pakai telnet</strong> — telnet tidak terenkripsi. Gunakan SSH.</li>
+        <li>Matikan login root via password di SSH: edit <code>/etc/ssh/sshd_config</code> → <code>PermitRootLogin prohibit-password</code> atau <code>no</code>, lalu restart sshd.</li>
+        <li>Gunakan key-based auth dan batasi IP yang boleh SSH (firewall / fail2ban).</li>
+        <li>Jangan jalankan update otomatis tanpa pengujian pada server produksi — sebaiknya uji di server staging dulu.</li>
+        <li>Backup sebelum patching (DB dump, config, snapshot).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700">7) Troubleshooting Cepat</h2>
+      <ul class="list-disc pl-6 text-gray-700">
+        <li>SSH timeout: cek firewall, service sshd, dan apakah port benar</li>
+        <li>scp/rsync gagal: cek storage space (df -h) dan permission file</li>
+        <li>Service gagal restart: cek log via <code>journalctl -xe</code> atau file log servis</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700">8) Referensi & Bacaan</h2>
+      <ul class="list-disc pl-6 text-blue-600">
+        <li><a href="https://docs.fedoraproject.org/" target="_blank" class="hover:underline">Fedora Docs</a></li>
+        <li><a href="https://www.ssh.com/academy/ssh" target="_blank" class="hover:underline">SSH Academy</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-900 text-white text-center p-4 mt-8">
+    <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
+  </footer>
+
+</body>
+</html>

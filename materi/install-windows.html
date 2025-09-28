@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instalasi Windows & Dual Boot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-900 text-white p-4 flex space-x-6 flex-wrap">
+    <a href="index.html" class="hover:underline">Beranda</a>
+    <a href="materi.html" class="hover:underline">Materi</a>
+    <a href="install-windows.html" class="hover:underline font-bold">Windows</a>
+    <a href="fedora-admin.html" class="hover:underline">Fedora Admin</a>
+    <a href="pos-client.html" class="hover:underline">POS Client</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-blue-800 text-white p-8 text-center">
+    <h1 class="text-3xl font-bold mb-2">Instalasi Windows & Konfigurasi Dual Boot</h1>
+    <p class="text-lg">Digunakan untuk sistem hybrid antara Fedora (Server) dan Windows (Client Tools)</p>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-3xl mx-auto p-6 bg-white my-10 rounded shadow space-y-8">
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">1. Kapan Perlu Windows?</h2>
+      <p class="text-gray-700">
+        Beberapa tools atau software hanya tersedia di Windows, seperti:
+      </p>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>POS Client versi Windows</li>
+        <li>Tool konfigurasi IP kamera</li>
+        <li>VNC Viewer & TeamViewer untuk remote</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">2. Instalasi Windows</h2>
+      <ol class="list-decimal pl-6 text-gray-700 space-y-1">
+        <li>Download ISO Windows 10 dari situs resmi</li>
+        <li>Buat USB bootable dengan Rufus</li>
+        <li>Boot dari USB → ikuti wizard instalasi</li>
+        <li>Di bagian partisi, sisakan sebagian ruang untuk Fedora (misalnya 40GB)</li>
+        <li>Instal Windows di partisi utama → reboot → selesaikan setup</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">3. Instal Fedora Setelah Windows</h2>
+      <p class="text-gray-700">
+        Agar bootloader Fedora bisa mengenali Windows, pastikan Fedora diinstal setelah Windows.
+      </p>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Boot USB Fedora</li>
+        <li>Pilih “Manual Partitioning” dan gunakan ruang kosong yang tersisa</li>
+        <li>Jangan hapus partisi Windows!</li>
+        <li>Lanjutkan instalasi Fedora seperti biasa</li>
+        <li>Pastikan GRUB bootloader terinstal di `/dev/sda`</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">4. Memilih OS Saat Booting</h2>
+      <p class="text-gray-700">
+        Setelah semua selesai, saat menyalakan komputer kamu akan melihat menu pilihan OS:
+      </p>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Fedora (default)</li>
+        <li>Windows Boot Manager</li>
+      </ul>
+      <p class="text-gray-700">Kamu bisa mengubah urutan default OS lewat terminal Fedora:</p>
+      <code class="block bg-gray-200 p-2 rounded text-sm">sudo grub2-set-default 1</code>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">5. Tips & Masalah Umum</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-1">
+        <li>Hindari instal Fedora duluan → Windows bisa menghapus GRUB</li>
+        <li>Selalu backup data sebelum membagi partisi</li>
+        <li>Jika menu boot tidak muncul: periksa BIOS (UEFI vs Legacy)</li>
+        <li>Gunakan aplikasi EasyBCD (Windows) jika GRUB bermasalah</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">6. Referensi Video</h2>
+      <ul class="list-disc pl-6 text-blue-600 space-y-2">
+        <li><a href="https://www.youtube.com/watch?v=E9vzKtwgZ9w" target="_blank" class="hover:underline">Dual Boot Fedora & Windows (YouTube)</a></li>
+        <li><a href="https://fedoraproject.org/wiki/Windows_dual_boot" target="_blank" class="hover:underline">Fedora Dual Boot Wiki</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center p-4 mt-10">
+    <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
+  </footer>
+
+</body>
+</html>

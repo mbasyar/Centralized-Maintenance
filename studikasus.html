@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studi Kasus - Central Maintenance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-900 text-white p-4 flex space-x-6">
+    <a href="index.html" class="hover:underline">Beranda</a>
+    <a href="materi.html" class="hover:underline">Materi</a>
+    <a href="komponen.html" class="hover:underline">Komponen</a>
+    <a href="studi-kasus.html" class="hover:underline font-bold">Studi Kasus</a>
+    <a href="galeri.html" class="hover:underline">Galeri</a>
+    <a href="sumber.html" class="hover:underline">Sumber</a>
+    <a href="tentang.html" class="hover:underline">Tentang</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-blue-800 text-white p-8 text-center">
+    <h1 class="text-3xl font-bold mb-2">Studi Kasus & Solusi</h1>
+    <p class="text-lg">Masalah umum dalam sistem parkir otomatis dan solusi oleh teknisi CM</p>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto my-10 p-6 bg-white rounded shadow space-y-10">
+
+    <!-- Kasus 1 -->
+    <section>
+      <h2 class="text-xl font-bold text-blue-700 mb-2">1. Sensor Tidak Mendeteksi Kendaraan</h2>
+      <p><strong>Masalah:</strong> Pengguna mengeluh bahwa gerbang tidak terbuka karena kendaraan tidak terdeteksi.</p>
+      <p><strong>Solusi Basyar:</strong> Basyar mengecek loop sensor dan menemukan kabel sensor terkelupas akibat tikus. Ia mengganti kabel dan menyambung ulang koneksi.</p>
+      <p><strong>Hasil:</strong> Sensor kembali normal, sistem mendeteksi kendaraan, dan tidak ada lagi antrean panjang.</p>
+    </section>
+
+    <!-- Kasus 2 -->
+    <section>
+      <h2 class="text-xl font-bold text-blue-700 mb-2">2. Barrier Gate Tidak Mau Terbuka</h2>
+      <p><strong>Masalah:</strong> Beberapa pengendara tidak bisa keluar karena palang tidak terangkat meski sudah membayar.</p>
+      <p><strong>Solusi Basyar:</strong> Ia memeriksa modul komunikasi antara mesin pembayaran dan barrier gate. Ternyata terjadi delay sistem akibat beban server.</p>
+      <p><strong>Hasil:</strong> Setelah restart sistem backend dan update firmware, masalah tidak muncul lagi.</p>
+    </section>
+
+    <!-- Kasus 3 -->
+    <section>
+      <h2 class="text-xl font-bold text-blue-700 mb-2">3. CCTV Tidak Merekam</h2>
+      <p><strong>Masalah:</strong> Saat terjadi tabrakan kecil, rekaman CCTV tidak tersedia.</p>
+      <p><strong>Solusi Basyar:</strong> Ia cek hard drive DVR yang ternyata penuh. Ia mengatur ulang siklus perekaman agar otomatis menghapus rekaman lama.</p>
+      <p><strong>Hasil:</strong> CCTV aktif kembali dan merekam setiap kejadian.</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center p-4 mt-10">
+    <p>&copy; 2025 | Sistem Pembelajaran CM | Dibuat oleh Mahasiswa</p>
+  </footer>
+
+</body>
+</html>
